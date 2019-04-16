@@ -1,0 +1,39 @@
+#!/usr/bin/env python3
+
+import sys,os
+from subprocess import Popen,PIPE
+
+CUI=b"CUI"
+CENS=b"CENS"
+TAX=b"TAX"
+
+def scan(fname):
+    err = 0
+    for c in ['T13','T26']:
+        if c in fname:
+            print("{}: contains {} in filename".format(fname,c))
+            err+=1
+    try:
+        contents = open(fname,'rb').read()
+        for c in [CUI + b'//' + CENS, CUI + b'//' + TAX]:
+            if c in contents:
+                print("{}: contains {} in file contents".format(fname,c))
+                err+=1
+    except IsADirectoryError:
+        pass
+    return err
+
+if __name__=="__main__":
+    errors = 0
+    commit_msg = Popen(['git','status','--porcelain','--null'],stdout=PIPE).communicate()[0].decode('utf-8')
+    for line in commit_msg.split('\000'):
+        if len(line)<4: continue
+        modified = line[0]=='M'
+        added    = line[1]=='A'
+        fname    = line[3:]
+        if modified or added:
+            errors += scan(fname)
+    if errors>0:
+        print("Errors detected: {}".format(errors))
+    exit(errors)
+

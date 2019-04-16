@@ -1,0 +1,103 @@
+% Certificate of disclosure avoidance
+% Originally from https://github.com/harishkumarholla/Certificate.git
+\documentclass[14pt]{scrartcl}              %class
+\usepackage{times}
+\usepackage[landscape,left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry} %for layout
+\usepackage{longtable}
+\usepackage{setspace}   % for spacing between lines
+\usepackage{graphicx}   % for including images
+\usepackage{eso-pic}    % package for including background image
+\usepackage{color}
+\usepackage{fancyhdr}
+\definecolor{a}{rgb}{0,0.08,0.45}
+\definecolor{red}{rgb}{0.5,0,0}
+
+\newcommand{\censusDirectorate}{Research and Methodology Directorate}
+\newcommand{\personOne}{@@PERSON1@@}
+\newcommand{\titleOne}{@@TITLE1@@}
+\newcommand{\personTwo}{@@PERSON2@@}
+\newcommand{\titleTwo}{@@TITLE2@@}
+\newcommand{\name}{@@NAME@@}
+\newcommand{\theDate}{@@DATE@@}
+
+%---------------------------------------------------------------
+\newcommand\BackgroundPic{
+ \put(0,0){
+ \parbox[b][\paperheight]{\paperwidth}{%
+ \vfill
+ \centering
+ % here include background image
+ \includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{background1.jpg}
+ \vfill
+}}}
+%----------------------------------------------------------------
+%=============================
+%=============================
+\def\signature#1#2{\parbox[b]{1in}{\smash{#1}\vskip12pt}
+\hfill \parbox[t]{2.8in}{\shortstack{\vrule width 2.8in height 0.4pt\\\small#2}}}
+\def\sigskip{\vskip0.4in plus 0.1in}
+        \def\beginskip{\vskip0.5875in plus 0.1in}
+%=============================
+\begin{document}
+ \AddToShipoutPicture{\BackgroundPic}     % here background image is called
+%=============================
+ %=============================
+\noindent
+\begin{minipage}[l]{1.5in}
+%Here include left side image
+\includegraphics[width=.92\linewidth]{Seal_of_the_United_States_Census_Bureau.pdf}  
+\end{minipage}
+\\
+\vspace{-1in}
+ %============================= 
+
+%=============================
+\noindent
+\begin{minipage}[l]{1.5in}
+\end{minipage}
+ \hfill
+ %=============================
+\begin{minipage}[c]{8.5in}
+{\centering
+{\doublespacing
+{\Large\bfseries\color{a}\censusDirectorate}}\\
+{\Large\bfseries\color{a} Certificate of Disclosure Avoidance}\\
+}
+\end{minipage}
+\hfill
+%=============================
+\begin{minipage}[r]{1.0in}
+\end{minipage}
+\hfill
+%=============================
+
+\vspace{4cm}
+{
+  \doublespacing
+  \noindent{{\bfseries This is to certify that {{\underline{\name}}} has
+      successfully undergone an automated disclosure avoidance process
+      on \underline{\theDate}.}}
+
+}
+
+\noindent
+{\singlespacing 
+\vfill
+\begin{minipage}[l]{2.8in}
+ \sigskip \signature{}{\bfseries\color{a} \personOne \\ \bfseries\color{a} \titleOne }
+\end{minipage}
+\hfill
+\begin{minipage}[r]{2.8in}
+\sigskip \signature{}{\bfseries\color{a} \personTwo \\ \bfseries\color{a} \titleTwo }
+\end{minipage}}
+\clearpage
+\def\BackgroundPic{}            % erase the background picture
+\fontsize{8}{8}\selectfont
+\pagestyle{fancy}
+\lhead{\name}
+\chead{@@DATE@@}
+\rhead{page \thepage}
+%\cfoot{page \thepage}
+%%DP%%
+%%ADDITION%%
+\end{document}

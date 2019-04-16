@@ -1,0 +1,32 @@
+#!/bin/sh
+#
+# install the hooks. Meant to be run in the 'hooks' directory with:
+# bash install
+
+# Make sure we are in the correct directory
+dir=`pwd`
+if [ `basename $dir` == hooks ]; then
+  echo You are in the correct directory
+else
+  echo Please chdir into the hooks directory and rerun this script.
+  exit 1
+fi
+
+# If the pre-commit hook isn't there, create it
+if [ -e ../.git/hooks/pre-commit ]; then
+  # See if the precommit hook is the hook we want
+  if [ x`stat -f %Y ../.git/hooks/pre-commit` == x../../hooks/pre-commit ]; then
+     echo The correct pre-commit hook is already installed
+     exit 0
+  fi
+  echo A pre-commit hook is already installed, and it is the wrong one.
+  exit 1
+fi
+
+echo Creating a pre-commit hook
+/bin/rm -f ../.git/hooks/pre-commit
+ln -s ../../hooks/pre-commit ../.git/hooks/pre-commit 
+ls -l ../.git/hooks/pre-commit
+echo pre-commit hook installed.
+exit 0
+

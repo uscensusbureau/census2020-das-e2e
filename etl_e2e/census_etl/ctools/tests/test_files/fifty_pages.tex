@@ -1,0 +1,8 @@
+\documentclass{article}
+\begin{document}
+\newcount\malcount \malcount=0
+\loop
+\advance\malcount by 1%
+page \the\malcount \clearpage
+\ifnum\malcount<50\repeat
+\end{document}

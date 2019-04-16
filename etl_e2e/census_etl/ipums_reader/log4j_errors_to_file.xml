@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<!-- https://stackoverflow.com/questions/27781187/how-to-stop-messages-displaying-on-spark-console -->
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+  <appender name="file" class="org.apache.log4j.DailyRollingFileAppender">
+    <param name="file" value="${LOG_DIR}"/>
+    <param name="datePattern" value="'.'yyyy-MM-dd"/>
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d [%t] %-5p %c %x - %m%n"/>
+    </layout>
+  </appender>
+  <logger name="org.apache.spark">
+    <level value="error" />
+  </logger>
+  <logger name="org.spark-project">
+    <level value="error" />
+  </logger>
+  <logger name="org.apache.hadoop">
+    <level value="error" />
+  </logger>
+  <logger name="io.netty">
+    <level value="error" />
+  </logger>
+  <logger name="org.apache.zookeeper">
+    <level value="error" />
+  </logger>
+  <logger name="org">
+    <level value="error" />
+  </logger>
+  <root>
+    <priority value ="ERROR" />
+    <appender-ref ref="console" />
+  </root>
+</log4j:configuration>
