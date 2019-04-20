@@ -6,7 +6,7 @@ Avoidance System for the 2018 Census End-to-End test (E2E).
 This release contains the actual code that was used to transform the
 Census Edited File (CEF) created in the 2018 E2E into the 2018
 Microdata Detail File (MDF) that was then used to create the
-demonstration PL94-171 restricting file that was shared with
+demonstration PL94-171 redistricting file that was shared with
 stakeholders.
 
 To support external evaluation, this release includes a [Standalone Guide](#standalone) outlining the steps involved in configuring an AWS EC2 instance for running the DAS system on the publicly available 1940s IPUMS Dataset. This Guide is located below for convenience, as well as in Section 10 of the Design Specification.  
