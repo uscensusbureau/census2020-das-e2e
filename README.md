@@ -13,7 +13,7 @@ To support external evaluation, this release includes a [Standalone Guide](#stan
 
 The remainder of this README provides [Additional Information](#das-system) about the DAS System, which may be useful for attempting to install and run the system outside of the suggested AWS EC2 instance. Although this has been performed successfully, the Census Bureau does not provide support for doing so at this time. 
 
-We thank you for taking the time to review this demonstration release of the US Census Bureau's Disclosure Avoidance System. We appreciate any feedback you would like to provide us. See the [Questions for Reviewers](QUESTIONS_FOR_REVIEWERS.md) file for contact information.
+We thank you for taking the time to review this demonstration release of the US Census Bureau's Disclosure Avoidance System. We appreciate any feedback you would like to provide us. 
 
 
 # <a id="standalone">DAS Standalone Guide on AWS</a>
