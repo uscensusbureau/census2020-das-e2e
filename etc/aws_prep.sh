@@ -34,7 +34,7 @@ crontab /tmp/cron$$
 
 
 # Get Spark if we don't have it
-SPARK_DIST=http://apache.mirrors.hoobly.com/spark/spark-2.3.1/spark-2.3.1-bin-hadoop2.7.tgz
+SPARK_DIST=http://apache.mirrors.hoobly.com/spark/spark-2.4.4/spark-2.4.4-bin-hadoop2.7.tgz
 SPARK_FILE=`basename $SPARK_DIST`
 SPARK_DIR=/usr/local/spark
 SPARK_TAR=$SPARK_DIR/$SPARK_FILE
