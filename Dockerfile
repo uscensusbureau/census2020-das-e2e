@@ -19,4 +19,6 @@ COPY ./data/EXT1940USCB_small.dat.gz $HOME/das_files/
 RUN gunzip $HOME/das_files/EXT1940USCB_small.dat.gz
 RUN mv $HOME/das_files/EXT1940USCB_small.dat $HOME/das_files/EXT1940USCB.dat
 
+RUN $HOME/das_decennial/etc/bashrc_prep.sh
+
 ENTRYPOINT ["/bin/bash"]
